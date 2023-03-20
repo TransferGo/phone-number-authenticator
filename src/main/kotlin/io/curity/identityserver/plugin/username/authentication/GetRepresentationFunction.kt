@@ -1,4 +1,4 @@
-package io.curity.identityserver.plugin.username.authentication
+package io.curity.identityserver.plugin.phonenumber.authentication
 
 import se.curity.identityserver.sdk.haapi.HaapiContract
 import se.curity.identityserver.sdk.haapi.Message
@@ -16,13 +16,13 @@ class GetRepresentationFunction : RepresentationFunction
     {
         val titleMessage: Message = Message.ofKey("view.authenticate")
         val submitMessage: Message = Message.ofKey("view.submit")
-        val usernameMessage: Message = Message.ofKey("view.username")
+        val usernameMessage: Message = Message.ofKey("view.phonenumber")
     }
 
     override fun apply(representationModel: RepresentationModel, factory: RepresentationFactory): Representation
     {
         val authUrl = representationModel.getString("_authUrl").let { URI.create(it) }
-        val username = representationModel.getOptionalString("username").orElse(null)
+        val phonenumber = representationModel.getOptionalString("phonenumber").orElse(null)
 
         return factory.newAuthenticationStep { step ->
             step.addFormAction(HaapiContract.Actions.Kinds.LOGIN,
@@ -32,7 +32,7 @@ class GetRepresentationFunction : RepresentationFunction
                     titleMessage,
                     submitMessage)
             { fields ->
-                fields.addUsernameField("username", usernameMessage, username)
+                fields.addTextField("phonenumber", usernameMessage)
             }
         }
     }

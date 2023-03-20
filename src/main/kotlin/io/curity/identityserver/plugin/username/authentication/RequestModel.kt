@@ -1,4 +1,4 @@
-package io.curity.identityserver.plugin.username.authentication
+package io.curity.identityserver.plugin.phonenumber.authentication
 
 import org.hibernate.validator.constraints.NotBlank
 import se.curity.identityserver.sdk.service.OriginalQueryExtractor
@@ -17,8 +17,8 @@ class RequestModel(request: Request, userPreferenceManager: UserPreferenceManage
 
 class Post(request: Request)
 {
-    @NotBlank(message = "validation.error.username.required")
-    val username: String = request.getFormParameterValueOrError("username")
+    @NotBlank(message = "validation.error.phonenumber.required")
+    val phonenumber: String = request.getFormParameterValueOrError("phonenumber")
 }
 
 class Get(userPreferenceManager: UserPreferenceManager)

@@ -1,5 +1,5 @@
-Username Authenticator Plugin
-=============================
+Phone Number Authenticator Plugin
+=================================
    
 .. image:: https://img.shields.io/badge/quality-production-green
     :target: https://curity.io/resources/code-examples/status/
@@ -7,7 +7,7 @@ Username Authenticator Plugin
 .. image:: https://img.shields.io/badge/availability-bundled-green
     :target: https://curity.io/resources/code-examples/status/
 
-A Kotlin-based username authenticator plugin for the Curity Identity Server.
+A Kotlin-based phonenumber authenticator plugin for the Curity Identity Server.
 
 Building the Plugin
 ~~~~~~~~~~~~~~~~~~~

@@ -1,8 +1,8 @@
-package io.curity.identityserver.plugin.username.descriptor
+package io.curity.identityserver.plugin.phonenumber.descriptor
 
-import io.curity.identityserver.plugin.username.authentication.GetRepresentationFunction
-import io.curity.identityserver.plugin.username.authentication.UsernameAuthenticatorRequestHandler
-import io.curity.identityserver.plugin.username.config.UsernameAuthenticatorPluginConfig
+import io.curity.identityserver.plugin.phonenumber.authentication.GetRepresentationFunction
+import io.curity.identityserver.plugin.phonenumber.authentication.UsernameAuthenticatorRequestHandler
+import io.curity.identityserver.plugin.phonenumber.config.UsernameAuthenticatorPluginConfig
 import se.curity.identityserver.sdk.authentication.AuthenticatorRequestHandler
 import se.curity.identityserver.sdk.plugin.descriptor.AuthenticatorPluginDescriptor
 
@@ -14,7 +14,7 @@ class UsernameAuthenticatorPluginDescriptor : AuthenticatorPluginDescriptor<User
     override fun getConfigurationType(): Class<out UsernameAuthenticatorPluginConfig> =
             UsernameAuthenticatorPluginConfig::class.java
 
-    override fun getPluginImplementationType(): String = "username"
+    override fun getPluginImplementationType(): String = "phonenumber"
 
     override fun getRepresentationFunctions() = mapOf(
             UsernameAuthenticatorRequestHandler.templateName to GetRepresentationFunction::class.java)

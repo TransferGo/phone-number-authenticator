@@ -1,4 +1,4 @@
-package io.curity.identityserver.plugin.username.config;
+package io.curity.identityserver.plugin.phonenumber.config;
 
 import se.curity.identityserver.sdk.config.Configuration
 import se.curity.identityserver.sdk.config.annotation.DefaultBoolean
@@ -12,7 +12,7 @@ interface UsernameAuthenticatorPluginConfig : Configuration
     val userPreferencesManager: UserPreferenceManager
     val exceptionFactory : ExceptionFactory
 
-    @Description("If there is a preferred username in the username cookie, pass it on without prompting the user. " +
+    @Description("If there is a preferred phonenumber in the phonenumber cookie, pass it on without prompting the user. " +
             "This cookie value can reside from a previous succesful authentication, or the client sending a " +
             "`login_hint`.")
     @DefaultBoolean(false)

@@ -14,9 +14,9 @@
  *  limitations under the License.
  */
 
-package io.curity.identityserver.plugin.username.authentication
+package io.curity.identityserver.plugin.phonenumber.authentication
 
-import io.curity.identityserver.plugin.username.config.UsernameAuthenticatorPluginConfig
+import io.curity.identityserver.plugin.phonenumber.config.UsernameAuthenticatorPluginConfig
 import se.curity.identityserver.sdk.attribute.Attribute
 import se.curity.identityserver.sdk.attribute.Attributes
 import se.curity.identityserver.sdk.attribute.AuthenticationAttributes
@@ -57,14 +57,14 @@ class UsernameAuthenticatorRequestHandler(config: UsernameAuthenticatorPluginCon
                 ?: throw exceptionFactory.internalServerException(ErrorCode.GENERIC_ERROR,
                         "Could not find correct request model")
 
-        userPreferencesManager.saveUsername(postRequestModel.username)
+        userPreferencesManager.saveUsername(postRequestModel.phonenumber)
 
-        return Optional.of(createAuthenticationResult(postRequestModel.username))
+        return Optional.of(createAuthenticationResult(postRequestModel.phonenumber))
     }
 
     private fun createAuthenticationResult(userName: String) = AuthenticationResult(
             AuthenticationAttributes.of(
-                    SubjectAttributes.of(userName, Attributes.of(Attribute.of("username", userName))),
+                    SubjectAttributes.of(userName, Attributes.of(Attribute.of("phonenumber", userName))),
                     ContextAttributes.of(Attributes.of(Attribute.of("iat", Date().time)))))
 
     companion object
@@ -76,7 +76,7 @@ class UsernameAuthenticatorRequestHandler(config: UsernameAuthenticatorPluginCon
     {
         // set the template and model for responses on the NOT_FAILURE scope
         response.setResponseModel(templateResponseModel(
-            singletonMap("username", userPreferencesManager.username as Any?),
+            singletonMap("phonenumber", userPreferencesManager.username as Any?),
             templateName), Response.ResponseModelScope.NOT_FAILURE)
 
         // on request validation failure, we should use the same template as for NOT_FAILURE

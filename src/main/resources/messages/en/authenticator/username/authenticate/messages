@@ -1,7 +1,6 @@
 meta.title=Login
 page.title=Login
 view.authenticate=Login
-view.username=Username
+view.phonenumber=Phone number
 view.submit=Next
-validation.error.username.required=You have to enter your username
-
+validation.error.phonenumber.required=You have to enter your phone number

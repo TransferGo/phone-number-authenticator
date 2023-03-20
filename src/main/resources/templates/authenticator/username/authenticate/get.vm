@@ -16,7 +16,7 @@
 
 #define ($_body)
 
-    #if ($_errors.toArray()[0]=='validation.error.username.required')
+    #if ($_errors.toArray()[0]=='validation.error.phonenumber.required')
         #set($_errorClass = "is-error is-error-danger")
     #end
 
@@ -40,11 +40,11 @@
         </p>
     </div>
 
-    <label for="username" class="$!_errorClass">#message("${_templatePrefix}.view.username")</label>
-    <input type="text" id="username" name="username" class="block full-width mb1 field-light $!_errorClass"
+    <label for="phonenumber" class="$!_errorClass">#message("${_templatePrefix}.view.phonenumber")</label>
+    <input type="text" id="phonenumber" name="phonenumber" class="block full-width mb1 field-light $!_errorClass"
            autocapitalize="none"
            required
-           value="$!username">
+           value="$!phonenumber">
 
     <button type="submit" class="button button-fullwidth button-primary">#message("${_templatePrefix}.view.submit")</button>
 
