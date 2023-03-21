@@ -16,7 +16,7 @@ class GetRepresentationFunction : RepresentationFunction
     {
         val titleMessage: Message = Message.ofKey("view.authenticate")
         val submitMessage: Message = Message.ofKey("view.submit")
-        val usernameMessage: Message = Message.ofKey("view.phonenumber")
+        val phonenumberMessage: Message = Message.ofKey("view.phonenumber")
     }
 
     override fun apply(representationModel: RepresentationModel, factory: RepresentationFactory): Representation
@@ -32,7 +32,7 @@ class GetRepresentationFunction : RepresentationFunction
                     titleMessage,
                     submitMessage)
             { fields ->
-                fields.addTextField("phonenumber", usernameMessage)
+                fields.addUsernameField("phonenumber", phonenumberMessage, phonenumber)
             }
         }
     }
